@@ -13,5 +13,15 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::to('news');
+});
+
+Route::pattern('id', '[0-9]+');
+
+Route::group(array('prefix' => 'news'), function()
+{
+	Route::get('/', array('uses' => 'PostController@getAll'));
+
+	Route::get('/{id?}', array('uses' => 'PostController@getOne'));
+
 });
