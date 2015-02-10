@@ -25,3 +25,8 @@ Route::group(array('prefix' => 'news'), function()
 	Route::get('/{id?}', array('uses' => 'PostController@getOne'));
 
 });
+
+App::missing(function($exception)
+{
+	return XApi::response(['error'=>400, 'results'=>null], 400);
+});
