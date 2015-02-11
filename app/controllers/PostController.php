@@ -16,7 +16,10 @@ class PostController extends BaseController {
 
 	public function getAll()
 	{
-		return $this->apiParser( $this->post->allPostsPaged() );
+		$limit = Input::get('limit', 100);
+		$offset = Input::get('offset', 0);
+
+		return $this->apiParser( $this->post->allPostsPaged($limit, $offset) );
 	}
 
 	public function getOne($id)
