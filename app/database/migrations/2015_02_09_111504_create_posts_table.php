@@ -17,12 +17,12 @@ class CreatePostsTable extends Migration {
 			$table->increments('id');
 			$table->text('title');
 			$table->dateTime('publish_date');
-			$table->text('content');
-			$table->text('excerpt');
-			$table->string('url', 255);
-			$table->string('image_src', 255);
-			$table->integer('source_id');
-			$table->timestamps();
+			$table->text('content')->nullable();
+			$table->text('excerpt')->nullable();
+			$table->text('url', 255);
+			$table->text('image_src', 255)->nullable();
+			$table->integer('source_id')->unsigned();;
+			$table->nullableTimestamps();
 		});
 	}
 
