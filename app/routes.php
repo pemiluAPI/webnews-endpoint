@@ -26,6 +26,11 @@ Route::group(array('prefix' => 'news'), function()
 
 });
 
+Route::group(array('prefix' => 'sources'), function()
+{
+	Route::get('/', array('uses' => 'PostSourceController@getAll'));
+});
+
 App::missing(function($exception)
 {
 	return XApi::response(['error'=>400, 'results'=>null], 400);
