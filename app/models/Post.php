@@ -27,10 +27,16 @@ class Post extends \Eloquent
 			->get();
 	}
 
-	public function allPostsPaged($limit=100, $offset=0)
+	public function allPostsPaged($limit=100, $offset=0, $source=null)
 	{
-		return DB::table($this->table)
-			->join('post_sources', 'posts.source_id', '=', 'post_sources.id')
+		$query = DB::table($this->table);
+
+		if (!empty($source))
+		{
+			$query = $query->where('posts.source_id', '=', $source);
+		}
+
+		$query = $query->join('post_sources', 'posts.source_id', '=', 'post_sources.id')
 			->select(
 				'posts.id',
 				'posts.title',
@@ -43,6 +49,8 @@ class Post extends \Eloquent
 			->orderBy('posts.publish_date', 'desc')
 			->skip($offset)->take($limit)
 			->get();
+
+		return $query;
 	}
 
 	public function onePost($post_id)
