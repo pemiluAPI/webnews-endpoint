@@ -7,7 +7,7 @@ class XApi
 		return Response::json(
 			array(
 				'error' =>   $data['error'],
-				'results' => $data['results'],
+				'results' => empty($data['results']) ? NULL : $data['results'],
 			),
 			$http_code);
 	}
