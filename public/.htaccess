@@ -6,7 +6,7 @@
     RewriteEngine On
 
     # For subdirectory app
-    RewriteBase /webnews-endpoint
+    RewriteBase /webnews
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
