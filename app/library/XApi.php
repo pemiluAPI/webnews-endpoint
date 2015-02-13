@@ -19,9 +19,9 @@ class XApi
 		$results['count'] = count($datas);
 		$results['data'] = $datas;
 
-		return XApi::response([
-			'results' => $results,
-			'error' => $error
-		]);
+		return XApi::response(array(
+				'results' => $results,
+				'error' => $error
+			));
 	}
 }
