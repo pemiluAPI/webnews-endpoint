@@ -33,5 +33,5 @@ Route::group(array('prefix' => 'sources'), function()
 
 App::missing(function($exception)
 {
-	return XApi::response(['error'=>400, 'results'=>null], 400);
+	return XApi::response(array('error'=>400, 'results'=>null), 400);
 });
