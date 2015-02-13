@@ -2,8 +2,8 @@
 
 class PostSource extends \Eloquent 
 {
-	protected $fillable = ['id', 'name', 'url'];
-	protected $hidden = ['created_at', 'updated_at'];
+	protected $fillable = array('id', 'name', 'url');
+	protected $hidden = array('created_at', 'updated_at');
 	protected $table = 'post_sources';
 
 	public function post(){

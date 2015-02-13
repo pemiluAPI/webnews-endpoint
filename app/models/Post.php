@@ -2,8 +2,8 @@
 
 class Post extends \Eloquent 
 {
-	protected $fillable = ['id', 'title', 'publish_date', 'content', 'excerpt', 'link', 'image_src', 'source_id'];
-	protected $hidden = ['created_at', 'updated_at'];
+	protected $fillable = array('id', 'title', 'publish_date', 'content', 'excerpt', 'link', 'image_src', 'source_id');
+	protected $hidden = array('created_at', 'updated_at');
 	protected $table = 'posts';
 
 	public function postSource()
