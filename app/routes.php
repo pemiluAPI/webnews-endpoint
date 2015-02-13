@@ -13,12 +13,12 @@
 
 Route::get('/', function()
 {
-	return Redirect::to('news');
+	return Redirect::to('api/news');
 });
 
 Route::pattern('id', '[0-9]+');
 
-Route::group(array('prefix' => 'news'), function()
+Route::group(array('prefix' => 'api/news'), function()
 {
 	Route::get('/', array('uses' => 'PostController@getAll'));
 
@@ -26,7 +26,7 @@ Route::group(array('prefix' => 'news'), function()
 
 });
 
-Route::group(array('prefix' => 'sources'), function()
+Route::group(array('prefix' => 'api/sources'), function()
 {
 	Route::get('/', array('uses' => 'PostSourceController@getAll'));
 });
