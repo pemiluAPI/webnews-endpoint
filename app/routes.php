@@ -11,27 +11,27 @@
 |
 */
 
-Route::get('/', function()
-{
-	return Redirect::to('api/news');
+Route::get('/', function() {
+
+    return Redirect::to('api/news');
 });
 
 Route::pattern('id', '[0-9]+');
 
-Route::group(array('prefix' => 'api/news'), function()
-{
-	Route::get('/', array('uses' => 'PostController@getAll'));
+Route::group(array('prefix' => 'api/news'), function() {
 
-	Route::get('/{id?}', array('uses' => 'PostController@getOne'));
+    Route::get('/', array('uses' => 'PostController@getAll'));
+
+    Route::get('/{id?}', array('uses' => 'PostController@getOne'));
 
 });
 
-Route::group(array('prefix' => 'api/sources'), function()
-{
-	Route::get('/', array('uses' => 'PostSourceController@getAll'));
+Route::group(array('prefix' => 'api/sources'), function() {
+
+    Route::get('/', array('uses' => 'PostSourceController@getAll'));
 });
 
-App::missing(function($exception)
-{
-	return XApi::response(array('error'=>400, 'results'=>null), 400);
+App::missing(function($exception) {
+
+    return XApi::response(array('error'=>400, 'results'=>null), 400);
 });
